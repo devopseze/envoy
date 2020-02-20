@@ -74,7 +74,7 @@ private:
 };
 
 ::opencensus::trace::Span
-startSpanHelper(const std::string& name, bool traced, const Http::HeaderMap& request_headers,
+startSpanHelper(const std::string& name, bool traced, const Http::RequestHeaderMap& request_headers,
                 const envoy::config::trace::v3::OpenCensusConfig& oc_config) {
   // Determine if there is a parent context.
   using OpenCensusConfig = envoy::config::trace::v3::OpenCensusConfig;

@@ -259,9 +259,9 @@ protected:
     // StreamImpl
     void submitHeaders(const std::vector<nghttp2_nv>& final_headers,
                        nghttp2_data_provider* provider) override;
-    void transformUpgradeFromH1toH2(HeaderMap& headers) override {
-      upgrade_type_ = std::string(headers.Upgrade()->value().getStringView());
-      Http::Utility::transformUpgradeRequestFromH1toH2(headers);
+    void transformUpgradeFromH1toH2(HeaderMap&) override {
+      /*upgrade_type_ = std::string(headers.Upgrade()->value().getStringView());
+      Http::Utility::transformUpgradeRequestFromH1toH2(headers);fixfix*/
     }
     StreamDecoder& decoder() override { return response_decoder_; }
     void decodeHeaders() override;
@@ -311,8 +311,8 @@ protected:
     // StreamImpl
     void submitHeaders(const std::vector<nghttp2_nv>& final_headers,
                        nghttp2_data_provider* provider) override;
-    void transformUpgradeFromH1toH2(HeaderMap& headers) override {
-      Http::Utility::transformUpgradeResponseFromH1toH2(headers);
+    void transformUpgradeFromH1toH2(HeaderMap&) override {
+      // fixfixHttp::Utility::transformUpgradeResponseFromH1toH2(headers);
     }
     StreamDecoder& decoder() override { return *request_decoder_; }
     void decodeHeaders() override;

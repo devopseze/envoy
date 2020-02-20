@@ -78,10 +78,10 @@ private:
   Extensions::Common::Tap::PerTapSinkHandleManagerPtr sink_handle_;
   Extensions::Common::Tap::Matcher::MatchStatusVector statuses_;
   bool started_streaming_trace_{};
-  const Http::HeaderMap* request_headers_{};
+  const Http::RequestHeaderMap* request_headers_{};
   const Http::HeaderMap* request_trailers_{};
-  const Http::HeaderMap* response_headers_{};
-  const Http::HeaderMap* response_trailers_{};
+  const Http::ResponseHeaderMap* response_headers_{};
+  const Http::ResponseTrailerMap* response_trailers_{};
   // Must be a shared_ptr because of submitTrace().
   Extensions::Common::Tap::TraceWrapperPtr buffered_streamed_request_body_;
   Extensions::Common::Tap::TraceWrapperPtr buffered_streamed_response_body_;
